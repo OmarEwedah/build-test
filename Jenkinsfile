@@ -10,10 +10,10 @@ node {
    
      stage('docker build/push') {
        docker.withRegistry('https://index.docker.io/v1/', 'docker-hub') {
-         def app = docker.build("omarewedah/build-test:latest", '.').push()
+       def app = docker.build("omarewedah/build-test:latest", '.').push()
      }
    }
-     catch(e) {
+    } catch(e) {
     // mark build as failed
      currentBuild.result = "FAILURE";
     // set variables
