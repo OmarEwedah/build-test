@@ -14,16 +14,19 @@ node {
      }
    }
    }catch(e) {
+    
     // mark build as failed
      currentBuild.result = "FAILURE";
+    
     // set variables
      def subject = "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} ${currentBuild.result}"
      def content = '${JELLY_SCRIPT,template="html"}'
 
     // send email
-     emailext(body: content, mimeType: 'text/html',
-         replyTo: '$DEFAULT_REPLYTO', subject: subject,
-         to: 'ewedah88@gmail.com', attachLog: true )
+     emailext(body: "${status} JOB ${env.JOB_NAME} check ${env.BUILD_URL}", 
+     subject: "Job ${env.JOB_NAME} ${env.BUILD_NUMBER} ${currentBuild.result},
+     to: 'ewedah88@gmail.com'
+     )
 
     // mark current build as a failure and throw the error
     throw e;
