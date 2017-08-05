@@ -24,6 +24,9 @@ node {
          subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} ${currentBuild.result}",
          to: 'ewedah88@gmail.com', attachLog: true )
 
+       // send slack notification
+    slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+
     // mark current build as a failure and throw the error
     throw e;
   }
