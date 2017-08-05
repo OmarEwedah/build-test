@@ -24,7 +24,7 @@ node {
 
     // send email
      emailext(body: "${status} JOB ${env.JOB_NAME} check ${env.BUILD_URL}", 
-     subject: "Job ${env.JOB_NAME} ${env.BUILD_NUMBER} ${currentBuild.result},
+     subject: "Job ${env.JOB_NAME} ${env.BUILD_NUMBER} ${currentBuild.result}",
      to: 'ewedah88@gmail.com'
      )
 
