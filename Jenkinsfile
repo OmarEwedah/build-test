@@ -1,5 +1,4 @@
 node {
-   notify("Started")
    stage('Preparation') {
      git url: 'https://github.com/OmarEwedah/build-test.git'                        
    }
