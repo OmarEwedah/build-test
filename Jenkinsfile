@@ -22,7 +22,7 @@ node {
     // send email
      emailext(body: content, mimeType: 'text/html',
          subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} ${currentBuild.result}",
-         to: 'omar.ewedah@orange.com', attachLog: true )
+         to: 'oewedah.ext@orange.com', attachLog: true )
 
        // send slack notification
     slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
