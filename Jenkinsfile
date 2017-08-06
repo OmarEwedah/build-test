@@ -1,7 +1,7 @@
 node {
    try {
      stage('Preparation') {
-       git url: 'https://github.com/ahmedmisbah/devops-sample-java-project.git'                        
+       git url: 'https://github.com/OmarEwedah/build-test.git'                        
    }
    
      stage('build, package') {
